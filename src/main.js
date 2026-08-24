@@ -1,6 +1,3 @@
-import "./style.css";
-import { gsap } from "gsap";
-
 document.getElementById("year").textContent = new Date().getFullYear();
 
 /* ---- Nav: entrance, hide-on-scroll, mobile toggle, active link ---- */
