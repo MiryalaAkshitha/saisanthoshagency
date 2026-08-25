@@ -676,8 +676,9 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; letter-spacing:
 
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 980px) {
-  .footer-top { flex-direction: column; }
+  .footer-top { flex-direction: column; padding: 40px 0; gap: 36px; }
   .footer-contact { text-align: left; }
+  .footer-inner { padding: 24px 0; }
   .nav-links {
     display: none;
     position: fixed;
@@ -712,6 +713,8 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; letter-spacing:
   .strength-row { flex-direction: column; align-items: flex-start; gap: 12px; }
   .strength-index { width: auto; }
   .nav-cta { display: none; }
+  .footer-contact p { margin-bottom: 10px; }
+  .footer-brand { gap: 24px; }
 }
 
 /* ===================== WHATSAPP WIDGET ===================== */
