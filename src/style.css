@@ -341,7 +341,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; letter-spacing:
   }
 }
 @media (max-width: 560px) {
-  .hero-plate-wrap { padding-top: 100px; }
+  .hero-plate-wrap { display: none; }
 }
 
 .hero-inner { position: relative; z-index: 1; padding-top: 96px; }
@@ -706,6 +706,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; letter-spacing:
 
 @media (max-width: 560px) {
   .section { padding: 80px 0; }
+  .hero-inner { padding-top: 128px; }
   .hero-stats { grid-template-columns: 1fr; row-gap: 20px; }
   .award-row, .scale-strip, .project-grid { grid-template-columns: 1fr; }
   .strength-row { flex-direction: column; align-items: flex-start; gap: 12px; }
