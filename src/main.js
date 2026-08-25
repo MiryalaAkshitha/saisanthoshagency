@@ -118,8 +118,7 @@ if (prefersReducedMotion) {
     .to(".hero-title .word", { y: 0, duration: 1, stagger: 0.045 }, 0.35)
     .to(".hero-sub", { opacity: 1, y: 0, duration: 0.9 }, 0.75)
     .to(".hero-ctas", { opacity: 1, y: 0, duration: 0.9 }, 0.9)
-    .to(".hero-stat", { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }, 1.05)
-    .to(".scroll-cue", { opacity: 1, y: 0, duration: 0.8 }, 1.5);
+    .to(".hero-stat", { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 }, 1.05);
 }
 
 /* ---- Hero parallax on scroll ---- */
@@ -146,4 +145,40 @@ if (heroSection && heroBg && heroInner && !prefersReducedMotion) {
     },
     { passive: true }
   );
+}
+
+/* ---- Award slideshow: arrows + autoplay ---- */
+const awardTrack = document.getElementById("awardTrack");
+const awardPrev = document.getElementById("awardPrev");
+const awardNext = document.getElementById("awardNext");
+
+if (awardTrack && awardPrev && awardNext) {
+  const slideStep = () => awardTrack.querySelector(".slide").offsetWidth + 20;
+
+  awardPrev.addEventListener("click", () => {
+    awardTrack.scrollBy({ left: -slideStep(), behavior: "smooth" });
+  });
+  awardNext.addEventListener("click", () => {
+    awardTrack.scrollBy({ left: slideStep(), behavior: "smooth" });
+  });
+
+  if (!prefersReducedMotion) {
+    let autoplayTimer = null;
+    const startAutoplay = () => {
+      autoplayTimer = setInterval(() => {
+        const atEnd = awardTrack.scrollLeft + awardTrack.clientWidth >= awardTrack.scrollWidth - 4;
+        if (atEnd) {
+          awardTrack.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          awardTrack.scrollBy({ left: slideStep(), behavior: "smooth" });
+        }
+      }, 3500);
+    };
+    const stopAutoplay = () => clearInterval(autoplayTimer);
+
+    startAutoplay();
+    awardTrack.addEventListener("mouseenter", stopAutoplay);
+    awardTrack.addEventListener("mouseleave", startAutoplay);
+    awardTrack.addEventListener("touchstart", stopAutoplay, { passive: true });
+  }
 }
