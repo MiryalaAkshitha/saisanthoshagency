@@ -715,6 +715,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; letter-spacing:
   .nav-cta { display: none; }
   .footer-contact p { margin-bottom: 10px; }
   .footer-brand { gap: 24px; }
+  .footer .container { padding-left: 40px; padding-right: 40px; }
 }
 
 /* ===================== WHATSAPP WIDGET ===================== */
