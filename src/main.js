@@ -109,11 +109,9 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 
 if (prefersReducedMotion) {
   gsap.set(".hero .reveal, .hero-title .word", { opacity: 1, y: 0 });
-  gsap.set(".hero-plate", { opacity: 1 });
 } else {
   gsap
     .timeline({ defaults: { ease: "power3.out" } })
-    .fromTo(".hero-plate", { opacity: 0 }, { opacity: 1, duration: 2 }, 0.2)
     .to(".hero .eyebrow", { opacity: 1, y: 0, duration: 0.8 }, 0.15)
     .to(".hero-title .word", { y: 0, duration: 1, stagger: 0.045 }, 0.35)
     .to(".hero-sub", { opacity: 1, y: 0, duration: 0.9 }, 0.75)
